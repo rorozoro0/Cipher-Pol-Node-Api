@@ -18,7 +18,7 @@ const app = express();
 //   })
 //   .then(() => console.log('DB connection successfull'));
 app.get("/", (req, res)=>{
-  res.send("hello world");
+  res.json({msg:'hello world'});
 })
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
