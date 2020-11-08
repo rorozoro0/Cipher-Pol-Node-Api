@@ -3,8 +3,8 @@ const morgan = require('morgan');
 
 const movieRouter = require('./routes/movieRoutes');
 // const tvRouter = require('./routes/tvRoutes');
-// const animeRouter = require('./routes/animeRoutes');
-// const mangaRouter = require('./routes/mangaRoutes');
+const animeRouter = require('./routes/animeRoutes');
+const mangaRouter = require('./routes/mangaRoutes');
 
 const app = express();
 
