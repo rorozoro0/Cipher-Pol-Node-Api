@@ -19,6 +19,38 @@ exports.getAllTv = async (req, res) => {
   }
 };
 
+exports.getRandom = async (req, res) => {
+  try {
+    var tv;
+    // Movie.findOne({ _id: req.params.id })
+
+    Tv.findOneRandom(function(err1, element) {
+      if (err1)
+      {
+        console.log(err1);
+        console.log("vbhvhasb")
+      }
+      else
+      {
+        console.log(element);
+        tv = element;
+        res.status(200).json({
+          status: 'success',
+          data: {
+            tv
+          }
+        });
+      }
+    });    
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      abc: 'xcfghjkjhg',
+      message: err
+    });
+  }
+};
+
 exports.getTv = async (req, res) => {
   try {
     const tv = await Tv.findById(req.params.id);
@@ -59,6 +91,27 @@ exports.createTv = async (req, res) => {
 };
 
 exports.updateTv = async (req, res) => {
+  try {
+    const tv = await Tv.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        tv
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
+};
+
+exports.updateTvComment = async (req, res) => {
   try {
     // const tv = await Tv.findByIdAndUpdate(req.params.id, req.body, {
     //   new: true

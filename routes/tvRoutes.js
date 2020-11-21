@@ -9,6 +9,14 @@ router
   .post(tvController.createTv);
 
 router
+  .route('/random')
+  .get(tvController.getRandom);
+
+router
+  .route('/comment/:id')
+  .patch(tvController.updateTvComment);
+
+router
   .route('/:id')
   .get(tvController.getTv)
   .patch(tvController.updateTv)

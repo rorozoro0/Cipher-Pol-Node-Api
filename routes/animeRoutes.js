@@ -9,6 +9,14 @@ router
   .post(animeController.createAnime);
 
 router
+  .route('/random')
+  .get(animeController.getRandom);
+
+router
+  .route('/comment/:id')
+  .patch(animeController.updateAnimeComment);
+
+router
   .route('/:id')
   .get(animeController.getAnime)
   .patch(animeController.updateAnime)

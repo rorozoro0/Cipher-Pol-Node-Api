@@ -19,6 +19,40 @@ exports.getAllManga = async (req, res) => {
   }
 };
 
+exports.getRandom = async (req, res) => {
+  try {
+    var manga;
+    // Movie.findOne({ _id: req.params.id })
+
+    Manga.findOneRandom(function(err1, element) {
+      if (err1)
+      {
+        console.log(err1);
+        console.log("vbhvhasb")
+      }
+      else
+      {
+        console.log(element);
+        manga = element;
+        res.status(200).json({
+          status: 'success',
+          data: {
+            manga
+          }
+        });
+      }
+    });
+
+    
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      abc: 'xcfghjkjhg',
+      message: err
+    });
+  }
+};
+
 exports.getManga = async (req, res) => {
   try {
     const manga = await Manga.findById(req.params.id);
@@ -59,6 +93,27 @@ exports.createManga = async (req, res) => {
 };
 
 exports.updateManga = async (req, res) => {
+  try {
+    const manga = await Manga.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        manga
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
+};
+
+exports.updateMangaComment = async (req, res) => {
   try {
     // const manga = await Manga.findByIdAndUpdate(req.params.id, req.body, {
     //   new: true

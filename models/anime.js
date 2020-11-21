@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const random = require('mongoose-simple-random');
 const animeSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -90,6 +90,9 @@ const animeSchema = new mongoose.Schema({
     }
 }]
 });
+
+animeSchema.plugin(random);
+
 const Anime = mongoose.model('Anime', animeSchema);
 
 module.exports = Anime;

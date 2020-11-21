@@ -11,6 +11,14 @@ router
   .post(movieController.createMovie);
 
 router
+  .route('/random')
+  .get(movieController.getRandom);
+
+router
+  .route('/comment/:id')
+  .patch(movieController.updateMovieComment);
+  
+router
   .route('/:id')
   .get(movieController.getMovie)
   .patch(movieController.updateMovie)
