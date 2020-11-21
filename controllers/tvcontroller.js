@@ -8,7 +8,7 @@ exports.getAllTv = async (req, res) => {
       status: 'success',
       results: tv.length,
       data: {
-        random: tv
+        tv
       }
     });
   } catch (err) {
@@ -37,7 +37,7 @@ exports.getRandom = async (req, res) => {
         res.status(200).json({
           status: 'success',
           data: {
-            tv
+            random: tv
           }
         });
       }
