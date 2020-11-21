@@ -61,7 +61,7 @@ exports.getMovie = async (req, res) => {
     res.status(200).json({
       status: 'success',
       data: {
-        movie
+        random: movie
       }
     });
   } catch (err) {
