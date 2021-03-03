@@ -96,3 +96,5 @@ animeSchema.plugin(random);
 const Anime = mongoose.model('Anime', animeSchema);
 
 module.exports = Anime;
+// color: #ccc;  
+//   font-weight: 100;
